@@ -13,66 +13,6 @@ Exemplos:
 X-Burger
 X-Salada
 
-📍 Diagrama:
-
-src/main/factorymethod/diagrama/diagrama-classe-factorymethod.png
-
-✅ Singleton
-
-Responsável por garantir uma única instância da configuração do sistema.
-
-📍 Diagrama:
-
-src/main/singleton/diagrama/diagrama-classe-singleton.png
-
-✅ Decorator
-
-Responsável por adicionar ingredientes extras dinamicamente aos hambúrgueres.
-
-📍 Diagrama:
-
-src/main/decorator/diagrama/diagrama-classe-decorator.png
-
-✅ Abstract Factory
-
-Responsável pela criação de combos completos da hamburgueria.
-
-📍 Diagrama:
-
-src/main/abstractfactory/diagrama/diagrama-classe-abs-factory.png
-
-✅ Bridge
-
-Separa a abstração do hambúrguer de seus ingredientes.
-
-📍 Diagrama:
-
-src/main/bridge/diagrama/diagrama-classe-bridge.png
-
-✅ Chain of Responsibility
-
-Realiza o encaminhamento de solicitações entre níveis de atendimento.
-
-📍 Diagrama:
-
-src/main/chain/diagrama/diagrama-classe-chain.png
-
-✅ Builder
-
-Responsável pela construção de hambúrgueres personalizados.
-
-📍 Diagrama:
-
-src/main/builder/diagrama/diagrama-classe-builder.png
-
-✅ Composite
-
-Permite representar produtos individuais e combos compostos.
-
-📍 Diagrama:
-
-src/main/composite/diagrama/diagrama-classe-composite.png
-
 🚀 Como Executar
 ▶️ Executar aplicação
 
