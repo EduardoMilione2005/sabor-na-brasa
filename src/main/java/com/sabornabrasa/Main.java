@@ -3,6 +3,9 @@ package com.sabornabrasa;
 import com.sabornabrasa.abstractfactory.*;
 import com.sabornabrasa.bridge.IngredienteTradicional;
 import com.sabornabrasa.bridge.IngredienteVegano;
+import com.sabornabrasa.chain.Atendente;
+import com.sabornabrasa.chain.Dono;
+import com.sabornabrasa.chain.Gerente;
 import com.sabornabrasa.director.HamburguerDirector;
 import com.sabornabrasa.model.Hamburguer;
 import com.sabornabrasa.refinedabstraction.HamburguerPremium;
@@ -86,5 +89,22 @@ public class Main {
 
         bebidaVegana.exibirTipo();
         batataVegana.exibirTipo();
+
+        // ===== CHAIN OF RESPONSIBILITY =====
+
+        System.out.println(
+                "\n=== CHAIN OF RESPONSIBILITY ==="
+        );
+
+        Atendente atendente = new Atendente();
+        Gerente gerente = new Gerente();
+        Dono dono = new Dono();
+
+        atendente.setProximo(gerente);
+        gerente.setProximo(dono);
+
+        atendente.atender("pedido");
+        atendente.atender("reclamacao");
+        atendente.atender("grave");
     }
 }
