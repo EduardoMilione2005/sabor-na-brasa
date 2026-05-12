@@ -19,6 +19,8 @@ import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
+import com.sabornabrasa.observer.Cliente;
+import com.sabornabrasa.observer.PedidoLoja;
 import com.sabornabrasa.singleton.ConfiguracaoSistema;
 import com.sabornabrasa.state.Pedido;
 
@@ -210,6 +212,41 @@ public class Main {
         pedido.exibirStatus();
 
         pedido.avancar();
+
+        // ===== OBSERVER =====
+
+        System.out.println(
+                "\n=== OBSERVER ==="
+        );
+
+        PedidoLoja pedidoLoja =
+                new PedidoLoja();
+
+        Cliente cliente1 =
+                new Cliente("João");
+
+        Cliente cliente2 =
+                new Cliente("Maria");
+
+        pedidoLoja.adicionarObservador(
+                cliente1
+        );
+
+        pedidoLoja.adicionarObservador(
+                cliente2
+        );
+
+        pedidoLoja.setStatus(
+                "Pedido saiu para entrega"
+        );
+
+        pedidoLoja.removerObservador(
+                cliente2
+        );
+
+        pedidoLoja.setStatus(
+                "Pedido entregue"
+        );
     }
 
     private static Combo criarCombo() {
