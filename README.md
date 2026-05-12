@@ -73,6 +73,14 @@ Fluxo:
 Recebido
 Preparando
 Entregue
+✅ Observer
+
+Responsável por notificar clientes sobre atualizações nos pedidos.
+
+Exemplos:
+Pedido saiu para entrega
+Pedido entregue
+Atualização automática dos clientes cadastrados
 🚀 Como Executar
 ▶️ Executar aplicação
 
@@ -94,6 +102,7 @@ src/
 │               ├── composite/
 │               ├── decorator/
 │               ├── factorymethod/
+│               ├── observer/
 │               ├── singleton/
 │               ├── state/
 │               └── Main.java
@@ -116,6 +125,7 @@ Decorator
 Composite
 Factory Method
 State
+Observer
 🛠️ Tecnologias Utilizadas
 Java 17
 Maven
