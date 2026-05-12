@@ -19,6 +19,7 @@ import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
+import com.sabornabrasa.state.Pedido;
 
 public class Main {
 
@@ -175,6 +176,24 @@ public class Main {
                 xSaladaFactory.criarLanche();
 
         xSalada.preparar();
+
+        // ===== STATE =====
+
+        System.out.println(
+                "\n=== STATE ==="
+        );
+
+        Pedido pedido = new Pedido();
+
+        pedido.exibirStatus();
+
+        pedido.avancar();
+        pedido.exibirStatus();
+
+        pedido.avancar();
+        pedido.exibirStatus();
+
+        pedido.avancar();
     }
 
     private static Combo criarCombo() {
