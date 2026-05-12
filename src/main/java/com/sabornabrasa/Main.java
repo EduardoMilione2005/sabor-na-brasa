@@ -15,6 +15,10 @@ import com.sabornabrasa.decorator.BaconDecorator;
 import com.sabornabrasa.decorator.HamburguerBase;
 import com.sabornabrasa.decorator.HamburguerSimples;
 import com.sabornabrasa.decorator.QueijoExtraDecorator;
+import com.sabornabrasa.factorymethod.Lanche;
+import com.sabornabrasa.factorymethod.LancheFactory;
+import com.sabornabrasa.factorymethod.XBurgerFactory;
+import com.sabornabrasa.factorymethod.XSaladaFactory;
 
 public class Main {
 
@@ -149,6 +153,28 @@ public class Main {
         Combo combo = criarCombo();
 
         combo.exibir();
+
+        // ===== FACTORY METHOD =====
+
+        System.out.println(
+                "\n=== FACTORY METHOD ==="
+        );
+
+        LancheFactory xBurgerFactory =
+                new XBurgerFactory();
+
+        Lanche xBurger =
+                xBurgerFactory.criarLanche();
+
+        xBurger.preparar();
+
+        LancheFactory xSaladaFactory =
+                new XSaladaFactory();
+
+        Lanche xSalada =
+                xSaladaFactory.criarLanche();
+
+        xSalada.preparar();
     }
 
     private static Combo criarCombo() {
