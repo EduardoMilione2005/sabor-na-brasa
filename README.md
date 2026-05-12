@@ -385,6 +385,26 @@ src/
 
 ---
 
+## 🏗️ Padrões de Projeto Utilizados
+
+### Builder
+
+Responsável pela criação dos hambúrgueres personalizados passo a passo.
+
+### Bridge
+
+Responsável por separar os tipos de hambúrguer dos ingredientes.
+
+### Abstract Factory
+
+Responsável por criar famílias de produtos relacionadas, como bebidas e batatas.
+
+### Chain of Responsibility
+
+Responsável pelo fluxo de atendimento da hamburgueria.
+
+---
+
 ## 🏗️ Padrão Builder
 
 O padrão Builder permite criar objetos complexos passo a passo.
@@ -403,9 +423,20 @@ Hamburguer hamburguer = new HamburguerBuilder()
 
 ## ✅ Funcionalidades
 
+* Utilização do padrão Builder
+
+* Utilização do padrão Bridge
+
+* Utilização do padrão Abstract Factory
+
+* Utilização do padrão Chain of Responsibility
+
 * Criar hambúrguer tradicional
+
 * Criar hambúrguer vegano
+
 * Criar hambúrguer personalizado
+
 * Executar testes automatizados
 
 ---
@@ -432,6 +463,30 @@ mvn exec:java
 
 ---
 
+## 📂 Estrutura de Pastas
+
+```text
+src/
+├── main/java/com/sabornabrasa
+│   ├── abstractfactory
+│   ├── bridge
+│   ├── builder
+│   ├── chain
+│   ├── director
+│   ├── model
+│   ├── refinedabstraction
+│   └── Main.java
+│
+└── test/java/com/sabornabrasa
+    ├── AbstractFactoryTest.java
+    ├── BridgeHamburguerTest.java
+    ├── ChainTest.java
+    ├── HamburguerBuilderTest.java
+    └── HamburguerDirectorTest.java
+```
+
+---
+
 ## 🧪 Testes
 
 Os testes verificam:
@@ -439,6 +494,9 @@ Os testes verificam:
 * Criação de hambúrguer personalizado
 * Criação de hambúrguer tradicional
 * Criação de hambúrguer vegano
+* Funcionamento do padrão Bridge
+* Funcionamento do Abstract Factory
+* Funcionamento do Chain of Responsibility
 
 ---
 
