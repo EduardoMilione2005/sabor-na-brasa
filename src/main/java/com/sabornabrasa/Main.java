@@ -19,11 +19,27 @@ import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
+import com.sabornabrasa.singleton.ConfiguracaoSistema;
 import com.sabornabrasa.state.Pedido;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        // ===== SINGLETON =====
+
+        System.out.println(
+                "=== SINGLETON ==="
+        );
+
+        ConfiguracaoSistema config =
+                ConfiguracaoSistema
+                        .getInstancia();
+
+        System.out.println(
+                "Hamburgueria: "
+                        + config.getNomeHamburgueria()
+        );
 
         // ===== BUILDER =====
 
@@ -37,7 +53,7 @@ public class Main {
                 director.criarHamburguerVegano();
 
         System.out.println(
-                "=== HAMBÚRGUER TRADICIONAL ==="
+                "\n=== HAMBÚRGUER TRADICIONAL ==="
         );
 
         System.out.println(tradicional);
