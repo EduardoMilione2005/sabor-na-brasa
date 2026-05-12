@@ -22,7 +22,7 @@ IntelliJ IDEA
 
 Utilizado para criar hambúrgueres personalizados passo a passo.
 
-Exemplo:
+Exemplos:
 Hambúrguer tradicional
 Hambúrguer vegano
 Hambúrguer personalizado
@@ -65,6 +65,14 @@ Exemplos:
 Bacon extra
 Queijo extra
 Combinação de adicionais
+🧩 Composite
+
+Responsável por tratar objetos individuais e grupos de objetos da mesma forma.
+
+Exemplos:
+Produto individual
+Combo com vários produtos
+Organização de pedidos compostos
 📂 Estrutura do Projeto
 src/
 ├── main/java/com/sabornabrasa
@@ -73,6 +81,7 @@ src/
 │   ├── bridge
 │   ├── builder
 │   ├── chain
+│   ├── composite
 │   ├── decorator
 │   ├── director
 │   ├── model
@@ -83,6 +92,7 @@ src/
     ├── AbstractFactoryTest.java
     ├── BridgeHamburguerTest.java
     ├── ChainTest.java
+    ├── CompositeTest.java
     ├── DecoratorTest.java
     ├── HamburguerBuilderTest.java
     └── HamburguerDirectorTest.java
@@ -90,6 +100,7 @@ src/
 Criar hambúrgueres personalizados
 Criar hambúrgueres premium
 Criar combos tradicionais e veganos
+Criar combos compostos
 Adicionar ingredientes extras
 Simular fluxo de atendimento
 Executar testes automatizados
@@ -109,6 +120,7 @@ Bridge
 Abstract Factory
 Chain of Responsibility
 Decorator
+Composite
 📖 Conceitos Trabalhados
 Programação Orientada a Objetos
 Encapsulamento
