@@ -3,16 +3,18 @@ package com.sabornabrasa;
 import com.sabornabrasa.abstractfactory.*;
 import com.sabornabrasa.bridge.IngredienteTradicional;
 import com.sabornabrasa.bridge.IngredienteVegano;
+import com.sabornabrasa.builder.Hamburguer;
+import com.sabornabrasa.builder.HamburguerDirector;
+import com.sabornabrasa.builder.HamburguerPremium;
 import com.sabornabrasa.chain.Atendente;
 import com.sabornabrasa.chain.Dono;
 import com.sabornabrasa.chain.Gerente;
+import com.sabornabrasa.composite.Combo;
+import com.sabornabrasa.composite.Produto;
 import com.sabornabrasa.decorator.BaconDecorator;
 import com.sabornabrasa.decorator.HamburguerBase;
 import com.sabornabrasa.decorator.HamburguerSimples;
 import com.sabornabrasa.decorator.QueijoExtraDecorator;
-import com.sabornabrasa.builder.HamburguerDirector;
-import com.sabornabrasa.builder.Hamburguer;
-import com.sabornabrasa.builder.HamburguerPremium;
 
 public class Main {
 
@@ -20,7 +22,8 @@ public class Main {
 
         // ===== BUILDER =====
 
-        HamburguerDirector director = new HamburguerDirector();
+        HamburguerDirector director =
+                new HamburguerDirector();
 
         Hamburguer tradicional =
                 director.criarHamburguerTradicional();
@@ -100,9 +103,14 @@ public class Main {
                 "\n=== CHAIN OF RESPONSIBILITY ==="
         );
 
-        Atendente atendente = new Atendente();
-        Gerente gerente = new Gerente();
-        Dono dono = new Dono();
+        Atendente atendente =
+                new Atendente();
+
+        Gerente gerente =
+                new Gerente();
+
+        Dono dono =
+                new Dono();
 
         atendente.setProximo(gerente);
         gerente.setProximo(dono);
@@ -131,5 +139,44 @@ public class Main {
         System.out.println(
                 hamburguer.montar()
         );
+
+        // ===== COMPOSITE =====
+
+        System.out.println(
+                "\n=== COMPOSITE ==="
+        );
+
+        Combo combo = criarCombo();
+
+        combo.exibir();
+    }
+
+    private static Combo criarCombo() {
+
+        Produto hamburguer =
+                new Produto(
+                        "Hambúrguer Artesanal"
+                );
+
+        Produto batata =
+                new Produto(
+                        "Batata Frita"
+                );
+
+        Produto refrigerante =
+                new Produto(
+                        "Refrigerante"
+                );
+
+        Combo combo =
+                new Combo(
+                        "Combo Sabor na Brasa"
+                );
+
+        combo.adicionar(hamburguer);
+        combo.adicionar(batata);
+        combo.adicionar(refrigerante);
+
+        return combo;
     }
 }
