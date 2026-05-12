@@ -6,6 +6,10 @@ import com.sabornabrasa.bridge.IngredienteVegano;
 import com.sabornabrasa.chain.Atendente;
 import com.sabornabrasa.chain.Dono;
 import com.sabornabrasa.chain.Gerente;
+import com.sabornabrasa.decorator.BaconDecorator;
+import com.sabornabrasa.decorator.HamburguerBase;
+import com.sabornabrasa.decorator.HamburguerSimples;
+import com.sabornabrasa.decorator.QueijoExtraDecorator;
 import com.sabornabrasa.director.HamburguerDirector;
 import com.sabornabrasa.model.Hamburguer;
 import com.sabornabrasa.refinedabstraction.HamburguerPremium;
@@ -106,5 +110,26 @@ public class Main {
         atendente.atender("pedido");
         atendente.atender("reclamacao");
         atendente.atender("grave");
+
+        // ===== DECORATOR =====
+
+        System.out.println(
+                "\n=== DECORATOR ==="
+        );
+
+        HamburguerBase hamburguer =
+                new HamburguerSimples();
+
+        hamburguer =
+                new BaconDecorator(hamburguer);
+
+        hamburguer =
+                new QueijoExtraDecorator(
+                        hamburguer
+                );
+
+        System.out.println(
+                hamburguer.montar()
+        );
     }
 }
