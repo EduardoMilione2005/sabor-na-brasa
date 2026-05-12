@@ -1,5 +1,6 @@
 package com.sabornabrasa;
 
+import com.sabornabrasa.abstractfactory.*;
 import com.sabornabrasa.bridge.IngredienteTradicional;
 import com.sabornabrasa.bridge.IngredienteVegano;
 import com.sabornabrasa.director.HamburguerDirector;
@@ -10,6 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // ===== BUILDER =====
 
         HamburguerDirector director = new HamburguerDirector();
 
@@ -31,6 +33,7 @@ public class Main {
 
         System.out.println(vegano);
 
+        // ===== BRIDGE =====
 
         System.out.println(
                 "\n=== HAMBÚRGUER PREMIUM ==="
@@ -51,5 +54,37 @@ public class Main {
                 );
 
         premiumVegano.montar();
+
+        // ===== ABSTRACT FACTORY =====
+
+        System.out.println(
+                "\n=== ABSTRACT FACTORY ==="
+        );
+
+        HamburguerFactory factoryTradicional =
+                new FactoryTradicional();
+
+        Bebida bebidaTradicional =
+                factoryTradicional.criarBebida();
+
+        Batata batataTradicional =
+                factoryTradicional.criarBatata();
+
+        bebidaTradicional.exibirTipo();
+        batataTradicional.exibirTipo();
+
+        System.out.println();
+
+        HamburguerFactory factoryVegana =
+                new FactoryVegana();
+
+        Bebida bebidaVegana =
+                factoryVegana.criarBebida();
+
+        Batata batataVegana =
+                factoryVegana.criarBatata();
+
+        bebidaVegana.exibirTipo();
+        batataVegana.exibirTipo();
     }
 }
