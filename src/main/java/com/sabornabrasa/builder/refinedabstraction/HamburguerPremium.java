@@ -5,7 +5,7 @@ import com.sabornabrasa.builder.model.Hamburguer;
 
 public class HamburguerPremium extends Hamburguer {
 
-    private Ingrediente ingrediente;
+    private final Ingrediente ingrediente;
 
     public HamburguerPremium(Ingrediente ingrediente) {
 
