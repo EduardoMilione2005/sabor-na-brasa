@@ -2,17 +2,77 @@
 
 Projeto desenvolvido em Java com o objetivo de demonstrar a aplicação prática de diversos padrões de projeto (Design Patterns) em um sistema de hamburgueria.
 
-O sistema foi evoluindo ao longo das aulas, recebendo novos padrões conforme eram apresentados, resultando em uma aplicação modular, organizada e de fácil manutenção.
+O sistema foi evoluindo ao longo do desenvolvimento, recebendo novos padrões conforme eram implementados, resultando em uma aplicação modular, organizada e de fácil manutenção.
 
 📚 Padrões de Projeto Utilizados
+✅ Singleton
+
+Responsável por garantir uma única instância da configuração do sistema da hamburgueria.
+
+Exemplos:
+Configuração global do sistema
+Nome da hamburgueria
+✅ Builder
+
+Responsável pela construção de hambúrgueres personalizados.
+
+Exemplos:
+Hambúrguer tradicional
+Hambúrguer vegano
+Hambúrguer personalizado
+✅ Bridge
+
+Separa a abstração do hambúrguer de seus ingredientes.
+
+Exemplos:
+Hambúrguer premium tradicional
+Hambúrguer premium vegano
+✅ Abstract Factory
+
+Responsável pela criação de combos completos da hamburgueria.
+
+Exemplos:
+Combo tradicional
+Combo vegano
+✅ Chain of Responsibility
+
+Realiza o encaminhamento de solicitações entre níveis de atendimento.
+
+Fluxo:
+Atendente
+Gerente
+Dono
+✅ Decorator
+
+Responsável por adicionar ingredientes extras dinamicamente aos hambúrgueres.
+
+Exemplos:
+Bacon extra
+Queijo extra
+Combinação de adicionais
+✅ Composite
+
+Permite representar produtos individuais e combos compostos.
+
+Exemplos:
+Produto individual
+Combo completo
+Organização de pedidos compostos
 ✅ Factory Method
 
-Responsável pela criação dos diferentes tipos de lanches da hamburgueria.
+Responsável pela criação de diferentes tipos de lanches.
 
 Exemplos:
 X-Burger
 X-Salada
+✅ State
 
+Responsável por controlar os estados do pedido durante o fluxo da hamburgueria.
+
+Fluxo:
+Recebido
+Preparando
+Entregue
 🚀 Como Executar
 ▶️ Executar aplicação
 
@@ -34,6 +94,8 @@ src/
 │               ├── composite/
 │               ├── decorator/
 │               ├── factorymethod/
+│               ├── singleton/
+│               ├── state/
 │               └── Main.java
 │
 └── test/
@@ -45,16 +107,17 @@ src/
 O projeto possui testes automatizados utilizando JUnit 5 para os padrões implementados.
 
 Testes disponíveis:
-Factory Method
+Singleton
 Builder
 Bridge
 Abstract Factory
 Chain of Responsibility
 Decorator
 Composite
+Factory Method
+State
 🛠️ Tecnologias Utilizadas
 Java 17
 Maven
 JUnit 5
-PlantUML
 IntelliJ IDEA
