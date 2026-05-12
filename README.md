@@ -1,130 +1,120 @@
-🍔 Sabor na Brasa
+🍔 Sistema de Hamburgueria com Padrões de Projeto
 
-Sistema desenvolvido em Java com foco no estudo e aplicação de Padrões de Projeto (Design Patterns) em um cenário de hamburgueria.
+Projeto desenvolvido em Java com o objetivo de demonstrar a aplicação prática de diversos padrões de projeto (Design Patterns) em um sistema de hamburgueria.
 
-O projeto simula funcionalidades como criação de hambúrgueres, montagem de combos, personalização de ingredientes e fluxo de atendimento, utilizando diferentes padrões estruturais e comportamentais.
+O sistema foi evoluindo ao longo das aulas, recebendo novos padrões conforme eram apresentados, resultando em uma aplicação modular, organizada e de fácil manutenção.
 
-📚 Objetivo do Projeto
+📚 Padrões de Projeto Utilizados
+✅ Factory Method
 
-Aplicar conceitos de Programação Orientada a Objetos utilizando Design Patterns para:
-
-Melhorar a organização do código
-Facilitar manutenção e expansão do sistema
-Promover reutilização de componentes
-Tornar o sistema mais flexível e desacoplado
-🚀 Tecnologias Utilizadas
-Java 17
-Maven
-JUnit 5
-IntelliJ IDEA
-🏗️ Padrões de Projeto Aplicados
-🔨 Builder
-
-Utilizado para criar hambúrgueres personalizados passo a passo.
+Responsável pela criação dos diferentes tipos de lanches da hamburgueria.
 
 Exemplos:
-Hambúrguer tradicional
-Hambúrguer vegano
-Hambúrguer personalizado
-🌉 Bridge
+X-Burger
+X-Salada
 
-Responsável por separar os tipos de hambúrguer dos ingredientes utilizados.
+📍 Diagrama:
 
-Benefícios:
-Maior flexibilidade
-Evita excesso de subclasses
-Facilita novas combinações
-🏭 Abstract Factory
+src/main/factorymethod/diagrama/diagrama-classe-factorymethod.png
 
-Responsável pela criação de famílias de produtos relacionadas.
+✅ Singleton
 
-Exemplos:
-Combo tradicional
-Combo vegano
+Responsável por garantir uma única instância da configuração do sistema.
 
-Cada fábrica cria:
+📍 Diagrama:
 
-Bebida
-Batata
-🔗 Chain of Responsibility
+src/main/singleton/diagrama/diagrama-classe-singleton.png
 
-Responsável pelo fluxo de atendimento da hamburgueria.
-
-Fluxo:
-Atendente
-Gerente
-Dono
-
-Cada nível resolve um tipo específico de problema.
-
-🎨 Decorator
+✅ Decorator
 
 Responsável por adicionar ingredientes extras dinamicamente aos hambúrgueres.
 
-Exemplos:
-Bacon extra
-Queijo extra
-Combinação de adicionais
-🧩 Composite
+📍 Diagrama:
 
-Responsável por tratar objetos individuais e grupos de objetos da mesma forma.
+src/main/decorator/diagrama/diagrama-classe-decorator.png
 
-Exemplos:
-Produto individual
-Combo com vários produtos
-Organização de pedidos compostos
-📂 Estrutura do Projeto
+✅ Abstract Factory
+
+Responsável pela criação de combos completos da hamburgueria.
+
+📍 Diagrama:
+
+src/main/abstractfactory/diagrama/diagrama-classe-abs-factory.png
+
+✅ Bridge
+
+Separa a abstração do hambúrguer de seus ingredientes.
+
+📍 Diagrama:
+
+src/main/bridge/diagrama/diagrama-classe-bridge.png
+
+✅ Chain of Responsibility
+
+Realiza o encaminhamento de solicitações entre níveis de atendimento.
+
+📍 Diagrama:
+
+src/main/chain/diagrama/diagrama-classe-chain.png
+
+✅ Builder
+
+Responsável pela construção de hambúrgueres personalizados.
+
+📍 Diagrama:
+
+src/main/builder/diagrama/diagrama-classe-builder.png
+
+✅ Composite
+
+Permite representar produtos individuais e combos compostos.
+
+📍 Diagrama:
+
+src/main/composite/diagrama/diagrama-classe-composite.png
+
+🚀 Como Executar
+▶️ Executar aplicação
+
+Execute a classe:
+
+src/main/java/com/sabornabrasa/Main.java
+🧪 Executar testes
+mvn clean test
+📁 Estrutura do Projeto
 src/
-├── main/java/com/sabornabrasa
+├── main/
+│   └── java/
+│       └── com/
+│           └── sabornabrasa/
+│               ├── abstractfactory/
+│               ├── bridge/
+│               ├── builder/
+│               ├── chain/
+│               ├── composite/
+│               ├── decorator/
+│               ├── factorymethod/
+│               └── Main.java
 │
-│   ├── abstractfactory
-│   ├── bridge
-│   ├── builder
-│   ├── chain
-│   ├── composite
-│   ├── decorator
-│   ├── director
-│   ├── model
-│   ├── refinedabstraction
-│   └── Main.java
-│
-└── test/java/com/sabornabrasa
-    ├── AbstractFactoryTest.java
-    ├── BridgeHamburguerTest.java
-    ├── ChainTest.java
-    ├── CompositeTest.java
-    ├── DecoratorTest.java
-    ├── HamburguerBuilderTest.java
-    └── HamburguerDirectorTest.java
-✅ Funcionalidades
-Criar hambúrgueres personalizados
-Criar hambúrgueres premium
-Criar combos tradicionais e veganos
-Criar combos compostos
-Adicionar ingredientes extras
-Simular fluxo de atendimento
-Executar testes automatizados
-▶️ Como Executar
-Compilar o Projeto
-mvn clean install
-Executar os Testes
-mvn test
-Executar o Sistema
-mvn exec:java
-🧪 Testes Automatizados
+└── test/
+    └── java/
+        └── com/
+            └── sabornabrasa/
+🧪 Testes
 
-O projeto possui testes utilizando JUnit 5 para validar:
+O projeto possui testes automatizados utilizando JUnit 5 para os padrões implementados.
 
+Testes disponíveis:
+Factory Method
 Builder
 Bridge
 Abstract Factory
 Chain of Responsibility
 Decorator
 Composite
-📖 Conceitos Trabalhados
-Programação Orientada a Objetos
-Encapsulamento
-Abstração
-Polimorfismo
-Herança
-Design Patterns
+🛠️ Tecnologias Utilizadas
+Java 17
+Maven
+JUnit 5
+PlantUML
+IntelliJ IDEA
