@@ -1,4 +1,4 @@
-package com.sabornabrasa.model;
+package com.sabornabrasa.builder.model;
 
 public class Hamburguer {
 

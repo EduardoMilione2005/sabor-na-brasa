@@ -2,7 +2,7 @@ package com.sabornabrasa;
 
 import com.sabornabrasa.bridge.IngredienteTradicional;
 import com.sabornabrasa.bridge.IngredienteVegano;
-import com.sabornabrasa.refinedabstraction.HamburguerPremium;
+import com.sabornabrasa.builder.refinedabstraction.HamburguerPremium;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,7 +1,7 @@
-package com.sabornabrasa.director;
+package com.sabornabrasa.builder.director;
 
 import com.sabornabrasa.builder.HamburguerBuilder;
-import com.sabornabrasa.model.Hamburguer;
+import com.sabornabrasa.builder.model.Hamburguer;
 
 public class HamburguerDirector {
 

@@ -1,7 +1,7 @@
-package com.sabornabrasa.refinedabstraction;
+package com.sabornabrasa.builder.refinedabstraction;
 
 import com.sabornabrasa.bridge.Ingrediente;
-import com.sabornabrasa.model.Hamburguer;
+import com.sabornabrasa.builder.model.Hamburguer;
 
 public class HamburguerPremium extends Hamburguer {
 
