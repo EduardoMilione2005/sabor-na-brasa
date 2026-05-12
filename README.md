@@ -1,47 +1,79 @@
-README.md — Sabor na Brasa
 🍔 Sabor na Brasa
 
-Projeto desenvolvido em Java com o objetivo de demonstrar a utilização de padrões de projeto (Design Patterns) em um sistema de hamburgueria.
+Sistema desenvolvido em Java com foco no estudo e aplicação de Padrões de Projeto (Design Patterns) em um cenário de hamburgueria.
 
-O sistema simula o funcionamento de uma hamburgueria permitindo a criação de hambúrgueres, combos, fluxo de atendimento e organização dos ingredientes.
+O projeto simula funcionalidades como criação de hambúrgueres, montagem de combos, personalização de ingredientes e fluxo de atendimento, utilizando diferentes padrões estruturais e comportamentais.
 
-📚 Objetivo
+📚 Objetivo do Projeto
 
-Aplicar conceitos de Programação Orientada a Objetos utilizando padrões de projeto para melhorar:
+Aplicar conceitos de Programação Orientada a Objetos utilizando Design Patterns para:
 
-Organização do código
-Reutilização
-Flexibilidade
-Manutenção do sistema
+Melhorar a organização do código
+Facilitar manutenção e expansão do sistema
+Promover reutilização de componentes
+Tornar o sistema mais flexível e desacoplado
 🚀 Tecnologias Utilizadas
 Java 17
 Maven
 JUnit 5
 IntelliJ IDEA
-🏗️ Padrões de Projeto Utilizados
-Builder
+🏗️ Padrões de Projeto Aplicados
+🔨 Builder
 
-Responsável pela criação dos hambúrgueres personalizados passo a passo.
+Utilizado para criar hambúrgueres personalizados passo a passo.
 
-Bridge
+Exemplo:
+Hambúrguer tradicional
+Hambúrguer vegano
+Hambúrguer personalizado
+🌉 Bridge
 
 Responsável por separar os tipos de hambúrguer dos ingredientes utilizados.
 
-Abstract Factory
+Benefícios:
+Maior flexibilidade
+Evita excesso de subclasses
+Facilita novas combinações
+🏭 Abstract Factory
 
-Responsável pela criação de famílias de produtos, como bebidas e batatas.
+Responsável pela criação de famílias de produtos relacionadas.
 
-Chain of Responsibility
+Exemplos:
+Combo tradicional
+Combo vegano
+
+Cada fábrica cria:
+
+Bebida
+Batata
+🔗 Chain of Responsibility
 
 Responsável pelo fluxo de atendimento da hamburgueria.
 
-📂 Estrutura de Pastas
+Fluxo:
+Atendente
+Gerente
+Dono
+
+Cada nível resolve um tipo específico de problema.
+
+🎨 Decorator
+
+Responsável por adicionar ingredientes extras dinamicamente aos hambúrgueres.
+
+Exemplos:
+Bacon extra
+Queijo extra
+Combinação de adicionais
+📂 Estrutura do Projeto
 src/
 ├── main/java/com/sabornabrasa
+│
 │   ├── abstractfactory
 │   ├── bridge
 │   ├── builder
 │   ├── chain
+│   ├── decorator
 │   ├── director
 │   ├── model
 │   ├── refinedabstraction
@@ -51,29 +83,36 @@ src/
     ├── AbstractFactoryTest.java
     ├── BridgeHamburguerTest.java
     ├── ChainTest.java
+    ├── DecoratorTest.java
     ├── HamburguerBuilderTest.java
     └── HamburguerDirectorTest.java
 ✅ Funcionalidades
-Criar hambúrguer tradicional
-Criar hambúrguer vegano
-Criar hambúrguer premium
+Criar hambúrgueres personalizados
+Criar hambúrgueres premium
 Criar combos tradicionais e veganos
+Adicionar ingredientes extras
 Simular fluxo de atendimento
 Executar testes automatizados
 ▶️ Como Executar
-Compilar o projeto
+Compilar o Projeto
 mvn clean install
-Executar os testes
+Executar os Testes
 mvn test
-Executar o sistema
+Executar o Sistema
 mvn exec:java
-🧪 Testes
+🧪 Testes Automatizados
 
-Os testes verificam:
+O projeto possui testes utilizando JUnit 5 para validar:
 
-Criação de hambúrguer personalizado
-Criação de hambúrguer tradicional
-Criação de hambúrguer vegano
-Funcionamento do padrão Bridge
-Funcionamento do Abstract Factory
-Funcionamento do Chain of Responsibility
+Builder
+Bridge
+Abstract Factory
+Chain of Responsibility
+Decorator
+📖 Conceitos Trabalhados
+Programação Orientada a Objetos
+Encapsulamento
+Abstração
+Polimorfismo
+Herança
+Design Patterns
