@@ -1,8 +1,8 @@
 package com.sabornabrasa;
 
 import com.sabornabrasa.builder.HamburguerBuilder;
-import com.sabornabrasa.builder.director.HamburguerDirector;
-import com.sabornabrasa.builder.model.Hamburguer;
+import com.sabornabrasa.builder.HamburguerDirector;
+import com.sabornabrasa.builder.Hamburguer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

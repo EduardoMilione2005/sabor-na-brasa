@@ -10,9 +10,9 @@ import com.sabornabrasa.decorator.BaconDecorator;
 import com.sabornabrasa.decorator.HamburguerBase;
 import com.sabornabrasa.decorator.HamburguerSimples;
 import com.sabornabrasa.decorator.QueijoExtraDecorator;
-import com.sabornabrasa.builder.director.HamburguerDirector;
-import com.sabornabrasa.builder.model.Hamburguer;
-import com.sabornabrasa.builder.refinedabstraction.HamburguerPremium;
+import com.sabornabrasa.builder.HamburguerDirector;
+import com.sabornabrasa.builder.Hamburguer;
+import com.sabornabrasa.builder.HamburguerPremium;
 
 public class Main {
 

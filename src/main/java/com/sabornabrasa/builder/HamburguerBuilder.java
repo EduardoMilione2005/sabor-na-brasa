@@ -1,7 +1,5 @@
 package com.sabornabrasa.builder;
 
-import com.sabornabrasa.builder.model.Hamburguer;
-
 public class HamburguerBuilder {
 
     private final Hamburguer hamburguer;
