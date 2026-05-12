@@ -81,6 +81,15 @@ Exemplos:
 Pedido saiu para entrega
 Pedido entregue
 Atualização automática dos clientes cadastrados
+✅ Mediator
+
+Responsável por centralizar a comunicação entre cliente e cozinha.
+
+Exemplos:
+Cliente envia pedido
+Cozinha recebe solicitação
+Cozinha responde status do pedido
+Comunicação desacoplada entre setores
 🚀 Como Executar
 ▶️ Executar aplicação
 
@@ -102,6 +111,7 @@ src/
 │               ├── composite/
 │               ├── decorator/
 │               ├── factorymethod/
+│               ├── mediator/
 │               ├── observer/
 │               ├── singleton/
 │               ├── state/
@@ -126,6 +136,7 @@ Composite
 Factory Method
 State
 Observer
+Mediator
 🛠️ Tecnologias Utilizadas
 Java 17
 Maven
