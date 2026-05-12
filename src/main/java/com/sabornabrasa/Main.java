@@ -19,6 +19,9 @@ import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
+import com.sabornabrasa.mediator.AtendimentoMediator;
+import com.sabornabrasa.mediator.ClienteUsuario;
+import com.sabornabrasa.mediator.CozinhaUsuario;
 import com.sabornabrasa.observer.Cliente;
 import com.sabornabrasa.observer.PedidoLoja;
 import com.sabornabrasa.singleton.ConfiguracaoSistema;
@@ -246,6 +249,41 @@ public class Main {
 
         pedidoLoja.setStatus(
                 "Pedido entregue"
+        );
+
+        // ===== MEDIATOR =====
+
+        System.out.println(
+                "\n=== MEDIATOR ==="
+        );
+
+        AtendimentoMediator mediator =
+                new AtendimentoMediator();
+
+        ClienteUsuario clienteMediator =
+                new ClienteUsuario(
+                        mediator
+                );
+
+        CozinhaUsuario cozinhaMediator =
+                new CozinhaUsuario(
+                        mediator
+                );
+
+        mediator.setCliente(
+                clienteMediator
+        );
+
+        mediator.setCozinha(
+                cozinhaMediator
+        );
+
+        clienteMediator.enviar(
+                "Pedido de hambúrguer"
+        );
+
+        cozinhaMediator.enviar(
+                "Pedido em preparação"
         );
     }
 
