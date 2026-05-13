@@ -90,6 +90,18 @@ Cliente envia pedido
 Cozinha recebe solicitação
 Cozinha responde status do pedido
 Comunicação desacoplada entre setores
+✅ Facade
+
+Responsável por simplificar o acesso aos serviços internos da hamburgueria.
+
+Serviços centralizados:
+Cozinha
+Pagamento
+Entrega
+Exemplo:
+
+Um único método realiza todo o fluxo do pedido.
+
 🚀 Como Executar
 ▶️ Executar aplicação
 
@@ -110,6 +122,7 @@ src/
 │               ├── chain/
 │               ├── composite/
 │               ├── decorator/
+│               ├── facade/
 │               ├── factorymethod/
 │               ├── mediator/
 │               ├── observer/
@@ -137,6 +150,7 @@ Factory Method
 State
 Observer
 Mediator
+Facade
 🛠️ Tecnologias Utilizadas
 Java 17
 Maven
