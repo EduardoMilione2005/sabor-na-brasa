@@ -15,6 +15,7 @@ import com.sabornabrasa.decorator.BaconDecorator;
 import com.sabornabrasa.decorator.HamburguerBase;
 import com.sabornabrasa.decorator.HamburguerSimples;
 import com.sabornabrasa.decorator.QueijoExtraDecorator;
+import com.sabornabrasa.facade.HamburgueriaFacade;
 import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
@@ -285,6 +286,17 @@ public class Main {
         cozinhaMediator.enviar(
                 "Pedido em preparação"
         );
+
+        // ===== FACADE =====
+
+        System.out.println(
+                "\n=== FACADE ==="
+        );
+
+        HamburgueriaFacade facade =
+                new HamburgueriaFacade();
+
+        facade.realizarPedido();
     }
 
     private static Combo criarCombo() {
