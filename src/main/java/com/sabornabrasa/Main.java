@@ -27,6 +27,9 @@ import com.sabornabrasa.observer.Cliente;
 import com.sabornabrasa.observer.PedidoLoja;
 import com.sabornabrasa.singleton.ConfiguracaoSistema;
 import com.sabornabrasa.state.Pedido;
+import com.sabornabrasa.strategy.DescontoClienteNovo;
+import com.sabornabrasa.strategy.DescontoClienteVip;
+import com.sabornabrasa.strategy.PedidoStrategy;
 
 public class Main {
 
@@ -297,6 +300,43 @@ public class Main {
                 new HamburgueriaFacade();
 
         facade.realizarPedido();
+
+        // ===== STRATEGY =====
+
+        System.out.println(
+                "\n=== STRATEGY ==="
+        );
+
+        PedidoStrategy pedidoStrategy =
+                new PedidoStrategy();
+
+        pedidoStrategy.setStrategy(
+                new DescontoClienteNovo()
+        );
+
+        double valorNovo =
+                pedidoStrategy.calcularValor(
+                        50.0
+                );
+
+        System.out.println(
+                "Cliente Novo: R$ "
+                        + valorNovo
+        );
+
+        pedidoStrategy.setStrategy(
+                new DescontoClienteVip()
+        );
+
+        double valorVip =
+                pedidoStrategy.calcularValor(
+                        50.0
+                );
+
+        System.out.println(
+                "Cliente VIP: R$ "
+                        + valorVip
+        );
     }
 
     private static Combo criarCombo() {
