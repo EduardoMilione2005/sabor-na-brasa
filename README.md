@@ -1,17 +1,16 @@
-🍔 Sistema de Hamburgueria com Padrões de Projeto
+🍔 Sabor na Brasa - Sistema de Hamburgueria com Padrões de Projeto
 
 Projeto desenvolvido em Java com o objetivo de demonstrar a aplicação prática de diversos padrões de projeto (Design Patterns) em um sistema de hamburgueria.
 
-O sistema foi evoluindo ao longo do desenvolvimento, recebendo novos padrões conforme eram implementados, resultando em uma aplicação modular, organizada e de fácil manutenção.
+O sistema simula funcionalidades de uma hamburgueria moderna, utilizando padrões de projeto para tornar a aplicação modular, organizada, reutilizável e de fácil manutenção.
 
-📚 Padrões de Projeto Utilizados
+📚 Padrões de Projeto Implementados
 ✅ Singleton
 
-Responsável por garantir uma única instância da configuração do sistema da hamburgueria.
+Garante uma única instância da configuração do sistema.
 
-Exemplos:
-Configuração global do sistema
-Nome da hamburgueria
+Exemplo:
+Configuração global da hamburgueria
 ✅ Builder
 
 Responsável pela construção de hambúrgueres personalizados.
@@ -19,24 +18,23 @@ Responsável pela construção de hambúrgueres personalizados.
 Exemplos:
 Hambúrguer tradicional
 Hambúrguer vegano
-Hambúrguer personalizado
 ✅ Bridge
 
-Separa a abstração do hambúrguer de seus ingredientes.
+Separa a abstração do hambúrguer da implementação dos ingredientes.
 
 Exemplos:
 Hambúrguer premium tradicional
 Hambúrguer premium vegano
 ✅ Abstract Factory
 
-Responsável pela criação de combos completos da hamburgueria.
+Cria famílias de produtos relacionados.
 
 Exemplos:
 Combo tradicional
 Combo vegano
 ✅ Chain of Responsibility
 
-Realiza o encaminhamento de solicitações entre níveis de atendimento.
+Encaminha solicitações entre diferentes níveis de atendimento.
 
 Fluxo:
 Atendente
@@ -44,20 +42,18 @@ Gerente
 Dono
 ✅ Decorator
 
-Responsável por adicionar ingredientes extras dinamicamente aos hambúrgueres.
+Adiciona ingredientes extras dinamicamente aos hambúrgueres.
 
 Exemplos:
 Bacon extra
 Queijo extra
-Combinação de adicionais
 ✅ Composite
 
-Permite representar produtos individuais e combos compostos.
+Permite representar produtos individuais e combos completos.
 
 Exemplos:
-Produto individual
-Combo completo
-Organização de pedidos compostos
+Produto simples
+Combo da hamburgueria
 ✅ Factory Method
 
 Responsável pela criação de diferentes tipos de lanches.
@@ -67,7 +63,7 @@ X-Burger
 X-Salada
 ✅ State
 
-Responsável por controlar os estados do pedido durante o fluxo da hamburgueria.
+Controla os estados do pedido durante o fluxo da hamburgueria.
 
 Fluxo:
 Recebido
@@ -75,33 +71,31 @@ Preparando
 Entregue
 ✅ Observer
 
-Responsável por notificar clientes sobre atualizações nos pedidos.
+Notifica clientes automaticamente sobre alterações no pedido.
 
 Exemplos:
 Pedido saiu para entrega
 Pedido entregue
-Atualização automática dos clientes cadastrados
 ✅ Mediator
 
-Responsável por centralizar a comunicação entre cliente e cozinha.
+Centraliza a comunicação entre cliente e cozinha.
 
 Exemplos:
 Cliente envia pedido
-Cozinha recebe solicitação
-Cozinha responde status do pedido
-Comunicação desacoplada entre setores
+Cozinha responde status
 ✅ Facade
 
-Responsável por simplificar o acesso aos serviços internos da hamburgueria.
+Simplifica o acesso às funcionalidades principais da hamburgueria.
 
-Serviços centralizados:
-Cozinha
-Pagamento
-Entrega
 Exemplo:
+Realização completa de pedidos
+✅ Strategy
 
-Um único método realiza todo o fluxo do pedido.
+Permite aplicar diferentes estratégias de desconto.
 
+Exemplos:
+Desconto para cliente novo
+Desconto para cliente VIP
 🚀 Como Executar
 ▶️ Executar aplicação
 
@@ -128,6 +122,7 @@ src/
 │               ├── observer/
 │               ├── singleton/
 │               ├── state/
+│               ├── strategy/
 │               └── Main.java
 │
 └── test/
@@ -136,13 +131,13 @@ src/
             └── sabornabrasa/
 🧪 Testes
 
-O projeto possui testes automatizados utilizando JUnit 5 para os padrões implementados.
+O projeto possui testes automatizados utilizando JUnit 5 para validação dos padrões implementados.
 
-Testes disponíveis:
+Testes implementados:
 Singleton
 Builder
-Bridge
 Abstract Factory
+Bridge
 Chain of Responsibility
 Decorator
 Composite
@@ -151,6 +146,7 @@ State
 Observer
 Mediator
 Facade
+Strategy
 🛠️ Tecnologias Utilizadas
 Java 17
 Maven
