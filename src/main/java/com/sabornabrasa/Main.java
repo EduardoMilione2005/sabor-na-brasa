@@ -30,6 +30,8 @@ import com.sabornabrasa.state.Pedido;
 import com.sabornabrasa.strategy.DescontoClienteNovo;
 import com.sabornabrasa.strategy.DescontoClienteVip;
 import com.sabornabrasa.strategy.PedidoStrategy;
+import com.sabornabrasa.templatemethod.PedidoTradicional;
+import com.sabornabrasa.templatemethod.PedidoVegano;
 
 public class Main {
 
@@ -337,6 +339,24 @@ public class Main {
                 "Cliente VIP: R$ "
                         + valorVip
         );
+
+        // ===== TEMPLATE METHOD =====
+
+        System.out.println(
+                "\n=== TEMPLATE METHOD ==="
+        );
+
+        PedidoTradicional pedidoTradicional =
+                new PedidoTradicional();
+
+        pedidoTradicional.preparar();
+
+        System.out.println();
+
+        PedidoVegano pedidoVegano =
+                new PedidoVegano();
+
+        pedidoVegano.preparar();
     }
 
     private static Combo criarCombo() {
