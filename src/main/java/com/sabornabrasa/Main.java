@@ -23,6 +23,8 @@ import com.sabornabrasa.factorymethod.XSaladaFactory;
 import com.sabornabrasa.mediator.AtendimentoMediator;
 import com.sabornabrasa.mediator.ClienteUsuario;
 import com.sabornabrasa.mediator.CozinhaUsuario;
+import com.sabornabrasa.memento.HistoricoPedido;
+import com.sabornabrasa.memento.PedidoMemento;
 import com.sabornabrasa.observer.Cliente;
 import com.sabornabrasa.observer.PedidoLoja;
 import com.sabornabrasa.singleton.ConfiguracaoSistema;
@@ -357,6 +359,52 @@ public class Main {
                 new PedidoVegano();
 
         pedidoVegano.preparar();
+
+        // ===== MEMENTO =====
+
+        System.out.println(
+                "\n=== MEMENTO ==="
+        );
+
+        HistoricoPedido historico =
+                new HistoricoPedido();
+
+        PedidoMemento pedidoMemento =
+                new PedidoMemento();
+
+        pedidoMemento.setEstado(
+                "Pedido recebido"
+        );
+
+        historico.salvar(
+                pedidoMemento.salvar()
+        );
+
+        pedidoMemento.setEstado(
+                "Pedido em preparação"
+        );
+
+        historico.salvar(
+                pedidoMemento.salvar()
+        );
+
+        pedidoMemento.setEstado(
+                "Pedido saiu para entrega"
+        );
+
+        System.out.println(
+                "Estado atual: "
+                        + pedidoMemento.getEstado()
+        );
+
+        pedidoMemento.restaurar(
+                historico.obter(0)
+        );
+
+        System.out.println(
+                "Estado restaurado: "
+                        + pedidoMemento.getEstado()
+        );
     }
 
     private static Combo criarCombo() {
