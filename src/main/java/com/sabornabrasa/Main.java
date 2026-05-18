@@ -34,6 +34,10 @@ import com.sabornabrasa.strategy.DescontoClienteVip;
 import com.sabornabrasa.strategy.PedidoStrategy;
 import com.sabornabrasa.templatemethod.PedidoTradicional;
 import com.sabornabrasa.templatemethod.PedidoVegano;
+import com.sabornabrasa.visitor.BebidaItem;
+import com.sabornabrasa.visitor.HamburguerItem;
+import com.sabornabrasa.visitor.Visitor;
+import com.sabornabrasa.visitor.VisitorPreco;
 
 public class Main {
 
@@ -404,6 +408,35 @@ public class Main {
         System.out.println(
                 "Estado restaurado: "
                         + pedidoMemento.getEstado()
+        );
+
+        // ===== VISITOR =====
+
+        System.out.println(
+                "\n=== VISITOR ==="
+        );
+
+        HamburguerItem hamburguerItem =
+                new HamburguerItem(
+                        "X-Burger",
+                        25.0
+                );
+
+        BebidaItem bebidaItem =
+                new BebidaItem(
+                        "Refrigerante",
+                        8.0
+                );
+
+        Visitor visitor =
+                new VisitorPreco();
+
+        hamburguerItem.aceitar(
+                visitor
+        );
+
+        bebidaItem.aceitar(
+                visitor
         );
     }
 

@@ -1,0 +1,14 @@
+package com.sabornabrasa.visitor;
+
+public interface Visitor {
+
+    void visitarHamburguer(
+            HamburguerItem hamburguer
+    );
+
+    void visitarBebida(
+            BebidaItem bebida
+    );
+
+    void visitar(ProdutoVisitor produtoVisitor);
+}
