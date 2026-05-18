@@ -1,248 +1,274 @@
-🍔 Sabor na Brasa - Sistema de Hamburgueria com Design Patterns
+🍔 Sabor na Brasa — Padrões de Projeto em Java
 
-Projeto desenvolvido em Java com o objetivo de demonstrar a aplicação prática dos principais padrões de projeto (Design Patterns) em um sistema de hamburgueria.
+Projeto desenvolvido em Java com o objetivo de demonstrar a implementação prática dos principais Design Patterns (Padrões de Projeto) da engenharia de software, utilizando o contexto de uma hamburgueria chamada Sabor na Brasa.
 
-O sistema simula funcionalidades reais de uma hamburgueria utilizando diversos padrões arquiteturais, tornando o código mais organizado, reutilizável e de fácil manutenção.
-
-📚 Padrões de Projeto Implementados
+📚 Padrões Implementados
 ✅ Singleton
 
-Garante uma única instância da configuração do sistema.
+Garante que exista apenas uma instância da configuração do sistema.
 
-Funcionalidade:
-Configuração global da hamburgueria.
+Classe principal
+ConfiguracaoSistema
+Funcionalidade
+
+Controla informações globais da hamburgueria.
+
 ✅ Builder
 
-Responsável pela construção de hambúrgueres personalizados.
+Responsável pela construção de hambúrgueres complexos passo a passo.
 
-Funcionalidade:
-Hambúrguer tradicional.
-Hambúrguer vegano.
+Classes principais
+Hamburguer
+HamburguerDirector
+HamburguerTradicional
+HamburguerVegano
+Funcionalidade
+
+Permite montar diferentes tipos de hambúrgueres.
+
 ✅ Bridge
 
-Separa a abstração dos hambúrgueres premium das implementações de ingredientes.
+Separa abstração da implementação.
 
-Funcionalidade:
-Hambúrguer premium tradicional.
-Hambúrguer premium vegano.
+Classes principais
+HamburguerPremium
+IngredienteTradicional
+IngredienteVegano
+Funcionalidade
+
+Permite combinar tipos de hambúrguer com ingredientes diferentes.
+
 ✅ Abstract Factory
 
-Cria famílias de produtos relacionados.
+Cria famílias de objetos relacionados.
 
-Funcionalidade:
-Combos tradicionais.
-Combos veganos.
-Bebidas e batatas específicas.
+Classes principais
+HamburguerFactory
+FactoryTradicional
+FactoryVegana
+Funcionalidade
+
+Criação de bebidas e batatas tradicionais ou veganas.
+
 ✅ Factory Method
 
-Responsável pela criação de diferentes tipos de lanches.
+Define uma interface para criar objetos.
 
-Funcionalidade:
-X-Burger.
-X-Salada.
+Classes principais
+LancheFactory
+XBurgerFactory
+XSaladaFactory
+Funcionalidade
+
+Criação de diferentes tipos de lanches.
+
 ✅ Chain of Responsibility
 
-Encaminha solicitações entre diferentes níveis de atendimento.
+Encadeia responsáveis para tratar solicitações.
 
-Funcionalidade:
-Atendimento comum.
-Reclamações.
-Problemas graves.
+Classes principais
+Atendente
+Gerente
+Dono
+Funcionalidade
+
+Encaminha reclamações e pedidos conforme o nível de responsabilidade.
+
 ✅ Decorator
 
-Adiciona ingredientes extras dinamicamente aos hambúrgueres.
+Adiciona funcionalidades dinamicamente aos objetos.
 
-Funcionalidade:
-Bacon extra.
-Queijo extra.
+Classes principais
+HamburguerSimples
+BaconDecorator
+QueijoExtraDecorator
+Funcionalidade
+
+Adiciona ingredientes extras ao hambúrguer.
+
 ✅ Composite
 
-Permite tratar produtos individuais e combos da mesma forma.
+Permite tratar objetos individuais e composições de forma uniforme.
 
-Funcionalidade:
-Criação de combos completos.
+Classes principais
+Produto
+Combo
+Funcionalidade
+
+Criação de combos com vários produtos.
+
 ✅ State
 
-Controla os estados do pedido no sistema.
+Altera comportamento conforme o estado interno.
 
-Funcionalidade:
-Pedido recebido.
-Pedido em preparo.
-Pedido entregue.
+Classes principais
+Pedido
+Estados do pedido
+Funcionalidade
+
+Controla o fluxo do pedido:
+
+Recebido
+Em preparação
+Saiu para entrega
+Entregue
 ✅ Observer
 
-Notifica clientes automaticamente sobre alterações nos pedidos.
+Define dependência entre objetos.
 
-Funcionalidade:
-Atualização de status.
-Remoção de observadores.
+Classes principais
+PedidoLoja
+Cliente
+Funcionalidade
+
+Clientes recebem notificações sobre atualizações do pedido.
+
 ✅ Mediator
 
-Centraliza a comunicação entre cliente e cozinha.
+Centraliza a comunicação entre objetos.
 
-Funcionalidade:
-Comunicação indireta entre setores.
+Classes principais
+AtendimentoMediator
+ClienteUsuario
+CozinhaUsuario
+Funcionalidade
+
+Facilita comunicação entre cliente e cozinha.
+
 ✅ Facade
 
-Simplifica operações complexas da hamburgueria.
+Fornece interface simplificada para subsistemas.
 
-Funcionalidade:
-Realização simplificada de pedidos.
+Classe principal
+HamburgueriaFacade
+Funcionalidade
+
+Simplifica o processo de realizar pedidos.
+
 ✅ Strategy
 
-Permite trocar estratégias de desconto dinamicamente.
+Permite alterar algoritmos dinamicamente.
 
-Funcionalidade:
-Desconto para cliente novo.
-Desconto para cliente VIP.
+Classes principais
+PedidoStrategy
+DescontoClienteNovo
+DescontoClienteVip
+Funcionalidade
+
+Aplicação de diferentes estratégias de desconto.
+
 ✅ Template Method
 
-Define um fluxo padrão para preparação dos pedidos.
+Define o esqueleto de um algoritmo.
 
-Funcionalidade:
-Pedido tradicional.
-Pedido vegano.
-🧪 Testes Automatizados
+Classes principais
+PrepararPedido
+PedidoTradicional
+PedidoVegano
+Funcionalidade
 
-O projeto possui testes automatizados utilizando JUnit 5 para validar o funcionamento dos padrões implementados.
+Padroniza o preparo dos pedidos.
+
+✅ Memento
+
+Salva e restaura estados anteriores de um objeto.
+
+Classes principais
+PedidoMemento
+HistoricoPedido
+Funcionalidade
+
+Permite salvar e restaurar estados do pedido.
+
+✅ Visitor
+
+Permite adicionar operações sem modificar os objetos.
+
+Classes principais
+Visitor
+VisitorPreco
+HamburguerItem
+BebidaItem
+Funcionalidade
+
+Calcula preços dos itens do pedido.
+
+🧪 Testes Implementados
+
+O projeto possui testes unitários utilizando JUnit 5.
 
 ✅ SingletonTest
 
-Verifica se apenas uma instância da configuração do sistema é criada.
+Verifica se apenas uma instância é criada.
 
-Testes:
-Retorno da mesma instância.
-Nome da hamburgueria configurado corretamente.
 ✅ BuilderTest
 
-Valida a construção dos hambúrgueres.
+Testa criação dos hambúrgueres.
 
-Testes:
-Criação do hambúrguer tradicional.
-Criação do hambúrguer vegano.
-Verificação dos ingredientes.
-✅ BridgeTest
-
-Testa a separação entre abstração e implementação.
-
-Testes:
-Hambúrguer premium tradicional.
-Hambúrguer premium vegano.
-✅ AbstractFactoryTest
-
-Valida a criação das famílias de produtos.
-
-Testes:
-Bebidas tradicionais.
-Batatas tradicionais.
-Bebidas veganas.
-Batatas veganas.
 ✅ FactoryMethodTest
 
-Verifica a criação correta dos lanches.
+Valida criação correta dos lanches.
 
-Testes:
-Criação de X-Burger.
-Criação de X-Salada.
-✅ ChainTest
-
-Valida o fluxo de atendimento.
-
-Testes:
-Atendimento de pedido comum.
-Atendimento de reclamação.
-Encaminhamento de problema grave.
-✅ DecoratorTest
-
-Verifica a adição dinâmica de ingredientes.
-
-Testes:
-Hambúrguer com bacon.
-Hambúrguer com queijo extra.
-Hambúrguer com múltiplos adicionais.
 ✅ CompositeTest
 
-Testa a composição de combos.
+Testa montagem de combos.
 
-Testes:
-Adição de produtos ao combo.
-Exibição do combo completo.
-✅ StateTest
+✅ DecoratorTest
 
-Valida a mudança de estados do pedido.
+Verifica adição de ingredientes extras.
 
-Testes:
-Estado inicial.
-Mudança para preparo.
-Mudança para entregue.
 ✅ ObserverTest
 
-Verifica o sistema de notificações.
+Valida notificações aos clientes.
 
-Testes:
-Adição de observadores.
-Remoção de observadores.
-Notificação de clientes.
-✅ MediatorTest
-
-Testa a comunicação mediada.
-
-Testes:
-Comunicação cliente → cozinha.
-Comunicação cozinha → cliente.
-✅ FacadeTest
-
-Valida a simplificação dos serviços.
-
-Testes:
-Realização completa de pedido usando fachada.
 ✅ StrategyTest
 
-Testa as estratégias de desconto.
+Testa cálculo de descontos:
 
-Testes:
-Desconto para cliente novo.
-Desconto para cliente VIP.
-✅ TemplateMethodTest
+Cliente novo
+Cliente VIP
+✅ MementoTest
 
-Valida o fluxo padrão de preparação dos pedidos.
+Verifica salvamento e restauração de estados.
 
-Testes:
-Preparação do pedido tradicional.
-Preparação do pedido vegano.
-🚀 Como Executar
-▶️ Executar aplicação
+✅ VisitorTest
+
+Valida cálculo de preços via Visitor.
+
+📂 Estrutura do Projeto
+src
+└── main
+    └── java
+        └── com.sabornabrasa
+            ├── abstractfactory
+            ├── bridge
+            ├── builder
+            ├── chain
+            ├── composite
+            ├── decorator
+            ├── facade
+            ├── factorymethod
+            ├── mediator
+            ├── memento
+            ├── observer
+            ├── singleton
+            ├── state
+            ├── strategy
+            ├── templatemethod
+            ├── visitor
+            └── Main.java
+▶️ Como Executar
+Pré-requisitos
+Java 17+
+IntelliJ IDEA ou Eclipse
+Maven ou Gradle
+Executar o projeto
 
 Execute a classe:
 
-src/main/java/com/sabornabrasa/Main.java
-🧪 Executar testes
-mvn clean test
-📁 Estrutura do Projeto
-src/
-├── main/
-│   └── java/
-│       └── com/
-│           └── sabornabrasa/
-│               ├── abstractfactory/
-│               ├── bridge/
-│               ├── builder/
-│               ├── chain/
-│               ├── composite/
-│               ├── decorator/
-│               ├── facade/
-│               ├── factorymethod/
-│               ├── mediator/
-│               ├── observer/
-│               ├── singleton/
-│               ├── state/
-│               ├── strategy/
-│               ├── templatemethod/
-│               └── Main.java
-│
-└── test/
-🛠️ Tecnologias Utilizadas
-Java 17
-Maven
+Main.java
+👨‍💻 Tecnologias Utilizadas
+Java
+Programação Orientada a Objetos
+Design Patterns
 JUnit 5
-IntelliJ IDEA
