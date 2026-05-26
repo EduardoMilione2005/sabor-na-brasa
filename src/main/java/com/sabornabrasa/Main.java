@@ -22,6 +22,9 @@ import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
 import com.sabornabrasa.flyweight.FlyweightFactory;
 import com.sabornabrasa.flyweight.IngredienteFlyweight;
+import com.sabornabrasa.iterator.Menu;
+import com.sabornabrasa.iterator.ItemMenu;
+import com.sabornabrasa.iterator.IteratorMenu;
 import com.sabornabrasa.mediator.AtendimentoMediator;
 import com.sabornabrasa.mediator.ClienteUsuario;
 import com.sabornabrasa.mediator.CozinhaUsuario;
@@ -40,7 +43,7 @@ import com.sabornabrasa.visitor.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static <Cardapio> void main(String[] args) {
 
         // ===== SINGLETON =====
         System.out.println("=== SINGLETON ===");
@@ -330,13 +333,34 @@ public class Main {
         Visitor visitor =
                 new CalculadoraPrecoVisitor();
 
-        hamburguerVisitor.aceitar(
-                visitor
+        hamburguerVisitor.aceitar(visitor);
+        bebidaVisitor.aceitar(visitor);
+
+        // ===== ITERATOR =====
+        System.out.println("\n=== ITERATOR ===");
+
+        Menu menu = new Menu();
+
+        menu.adicionarItem(
+                new ItemMenu("X-Burger")
         );
 
-        bebidaVisitor.aceitar(
-                visitor
+        menu.adicionarItem(
+                new ItemMenu("X-Salada")
         );
+
+        menu.adicionarItem(
+                new ItemMenu("X-Bacon")
+        );
+
+        IteratorMenu iterator =
+                menu.criarIterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(
+                    iterator.next().getNome()
+            );
+        }
 
         // ===== FLYWEIGHT =====
         System.out.println("\n=== FLYWEIGHT ===");
