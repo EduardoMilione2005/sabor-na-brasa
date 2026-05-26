@@ -9,6 +9,4 @@ public interface Visitor {
     void visitarBebida(
             BebidaItem bebida
     );
-
-    void visitar(ProdutoVisitor produtoVisitor);
 }

@@ -1,38 +1,18 @@
 package com.sabornabrasa.visitor;
 
-public class HamburguerItem
-        implements Item {
-
-    private final String nome;
-
-    private final double preco;
+public class HamburguerItem extends ProdutoVisitor {
 
     public HamburguerItem(
             String nome,
             double preco
     ) {
-
-        this.nome = nome;
-        this.preco = preco;
-    }
-
-    public String getNome() {
-
-        return nome;
-    }
-
-    public double getPreco() {
-
-        return preco;
+        super(nome, preco);
     }
 
     @Override
     public void aceitar(
             Visitor visitor
     ) {
-
-        visitor.visitarHamburguer(
-                this
-        );
+        visitor.visitarHamburguer(this);
     }
 }

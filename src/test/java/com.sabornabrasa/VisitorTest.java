@@ -1,6 +1,6 @@
 package com.sabornabrasa;
 
-import com.sabornabrasa.visitor.ProdutoVisitor;
+import com.sabornabrasa.visitor.HamburguerItem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,8 +10,8 @@ public class VisitorTest {
     @Test
     void deveRetornarPrecoProduto() {
 
-        ProdutoVisitor produto =
-                new ProdutoVisitor(
+        HamburguerItem produto =
+                new HamburguerItem(
                         "Hambúrguer",
                         30.0
                 );

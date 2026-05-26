@@ -20,6 +20,8 @@ import com.sabornabrasa.factorymethod.Lanche;
 import com.sabornabrasa.factorymethod.LancheFactory;
 import com.sabornabrasa.factorymethod.XBurgerFactory;
 import com.sabornabrasa.factorymethod.XSaladaFactory;
+import com.sabornabrasa.flyweight.FlyweightFactory;
+import com.sabornabrasa.flyweight.IngredienteFlyweight;
 import com.sabornabrasa.mediator.AtendimentoMediator;
 import com.sabornabrasa.mediator.ClienteUsuario;
 import com.sabornabrasa.mediator.CozinhaUsuario;
@@ -34,24 +36,17 @@ import com.sabornabrasa.strategy.DescontoClienteVip;
 import com.sabornabrasa.strategy.PedidoStrategy;
 import com.sabornabrasa.templatemethod.PedidoTradicional;
 import com.sabornabrasa.templatemethod.PedidoVegano;
-import com.sabornabrasa.visitor.BebidaItem;
-import com.sabornabrasa.visitor.HamburguerItem;
-import com.sabornabrasa.visitor.Visitor;
-import com.sabornabrasa.visitor.VisitorPreco;
+import com.sabornabrasa.visitor.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         // ===== SINGLETON =====
-
-        System.out.println(
-                "=== SINGLETON ==="
-        );
+        System.out.println("=== SINGLETON ===");
 
         ConfiguracaoSistema config =
-                ConfiguracaoSistema
-                        .getInstancia();
+                ConfiguracaoSistema.getInstancia();
 
         System.out.println(
                 "Hamburgueria: "
@@ -59,7 +54,6 @@ public class Main {
         );
 
         // ===== BUILDER =====
-
         HamburguerDirector director =
                 new HamburguerDirector();
 
@@ -69,23 +63,14 @@ public class Main {
         Hamburguer vegano =
                 director.criarHamburguerVegano();
 
-        System.out.println(
-                "\n=== HAMBÚRGUER TRADICIONAL ==="
-        );
-
+        System.out.println("\n=== HAMBÚRGUER TRADICIONAL ===");
         System.out.println(tradicional);
 
-        System.out.println(
-                "\n=== HAMBÚRGUER VEGANO ==="
-        );
-
+        System.out.println("\n=== HAMBÚRGUER VEGANO ===");
         System.out.println(vegano);
 
         // ===== BRIDGE =====
-
-        System.out.println(
-                "\n=== HAMBÚRGUER PREMIUM ==="
-        );
+        System.out.println("\n=== HAMBÚRGUER PREMIUM ===");
 
         HamburguerPremium premiumTradicional =
                 new HamburguerPremium(
@@ -104,10 +89,7 @@ public class Main {
         premiumVegano.montar();
 
         // ===== ABSTRACT FACTORY =====
-
-        System.out.println(
-                "\n=== ABSTRACT FACTORY ==="
-        );
+        System.out.println("\n=== ABSTRACT FACTORY ===");
 
         HamburguerFactory factoryTradicional =
                 new FactoryTradicional();
@@ -136,19 +118,11 @@ public class Main {
         batataVegana.exibirTipo();
 
         // ===== CHAIN OF RESPONSIBILITY =====
+        System.out.println("\n=== CHAIN OF RESPONSIBILITY ===");
 
-        System.out.println(
-                "\n=== CHAIN OF RESPONSIBILITY ==="
-        );
-
-        Atendente atendente =
-                new Atendente();
-
-        Gerente gerente =
-                new Gerente();
-
-        Dono dono =
-                new Dono();
+        Atendente atendente = new Atendente();
+        Gerente gerente = new Gerente();
+        Dono dono = new Dono();
 
         atendente.setProximo(gerente);
         gerente.setProximo(dono);
@@ -158,10 +132,7 @@ public class Main {
         atendente.atender("grave");
 
         // ===== DECORATOR =====
-
-        System.out.println(
-                "\n=== DECORATOR ==="
-        );
+        System.out.println("\n=== DECORATOR ===");
 
         HamburguerBase hamburguer =
                 new HamburguerSimples();
@@ -170,29 +141,18 @@ public class Main {
                 new BaconDecorator(hamburguer);
 
         hamburguer =
-                new QueijoExtraDecorator(
-                        hamburguer
-                );
+                new QueijoExtraDecorator(hamburguer);
 
-        System.out.println(
-                hamburguer.montar()
-        );
+        System.out.println(hamburguer.montar());
 
         // ===== COMPOSITE =====
-
-        System.out.println(
-                "\n=== COMPOSITE ==="
-        );
+        System.out.println("\n=== COMPOSITE ===");
 
         Combo combo = criarCombo();
-
         combo.exibir();
 
         // ===== FACTORY METHOD =====
-
-        System.out.println(
-                "\n=== FACTORY METHOD ==="
-        );
+        System.out.println("\n=== FACTORY METHOD ===");
 
         LancheFactory xBurgerFactory =
                 new XBurgerFactory();
@@ -211,10 +171,7 @@ public class Main {
         xSalada.preparar();
 
         // ===== STATE =====
-
-        System.out.println(
-                "\n=== STATE ==="
-        );
+        System.out.println("\n=== STATE ===");
 
         Pedido pedido = new Pedido();
 
@@ -229,10 +186,7 @@ public class Main {
         pedido.avancar();
 
         // ===== OBSERVER =====
-
-        System.out.println(
-                "\n=== OBSERVER ==="
-        );
+        System.out.println("\n=== OBSERVER ===");
 
         PedidoLoja pedidoLoja =
                 new PedidoLoja();
@@ -243,66 +197,39 @@ public class Main {
         Cliente cliente2 =
                 new Cliente("Maria");
 
-        pedidoLoja.adicionarObservador(
-                cliente1
-        );
-
-        pedidoLoja.adicionarObservador(
-                cliente2
-        );
+        pedidoLoja.adicionarObservador(cliente1);
+        pedidoLoja.adicionarObservador(cliente2);
 
         pedidoLoja.setStatus(
                 "Pedido saiu para entrega"
         );
 
-        pedidoLoja.removerObservador(
-                cliente2
-        );
+        pedidoLoja.removerObservador(cliente2);
 
         pedidoLoja.setStatus(
                 "Pedido entregue"
         );
 
         // ===== MEDIATOR =====
-
-        System.out.println(
-                "\n=== MEDIATOR ==="
-        );
+        System.out.println("\n=== MEDIATOR ===");
 
         AtendimentoMediator mediator =
                 new AtendimentoMediator();
 
         ClienteUsuario clienteMediator =
-                new ClienteUsuario(
-                        mediator
-                );
+                new ClienteUsuario(mediator);
 
         CozinhaUsuario cozinhaMediator =
-                new CozinhaUsuario(
-                        mediator
-                );
+                new CozinhaUsuario(mediator);
 
-        mediator.setCliente(
-                clienteMediator
-        );
+        mediator.setCliente(clienteMediator);
+        mediator.setCozinha(cozinhaMediator);
 
-        mediator.setCozinha(
-                cozinhaMediator
-        );
-
-        clienteMediator.enviar(
-                "Pedido de hambúrguer"
-        );
-
-        cozinhaMediator.enviar(
-                "Pedido em preparação"
-        );
+        clienteMediator.enviar("Pedido de hambúrguer");
+        cozinhaMediator.enviar("Pedido em preparação");
 
         // ===== FACADE =====
-
-        System.out.println(
-                "\n=== FACADE ==="
-        );
+        System.out.println("\n=== FACADE ===");
 
         HamburgueriaFacade facade =
                 new HamburgueriaFacade();
@@ -310,10 +237,7 @@ public class Main {
         facade.realizarPedido();
 
         // ===== STRATEGY =====
-
-        System.out.println(
-                "\n=== STRATEGY ==="
-        );
+        System.out.println("\n=== STRATEGY ===");
 
         PedidoStrategy pedidoStrategy =
                 new PedidoStrategy();
@@ -323,13 +247,10 @@ public class Main {
         );
 
         double valorNovo =
-                pedidoStrategy.calcularValor(
-                        50.0
-                );
+                pedidoStrategy.calcularValor(50.0);
 
         System.out.println(
-                "Cliente Novo: R$ "
-                        + valorNovo
+                "Cliente Novo: R$ " + valorNovo
         );
 
         pedidoStrategy.setStrategy(
@@ -337,20 +258,14 @@ public class Main {
         );
 
         double valorVip =
-                pedidoStrategy.calcularValor(
-                        50.0
-                );
+                pedidoStrategy.calcularValor(50.0);
 
         System.out.println(
-                "Cliente VIP: R$ "
-                        + valorVip
+                "Cliente VIP: R$ " + valorVip
         );
 
         // ===== TEMPLATE METHOD =====
-
-        System.out.println(
-                "\n=== TEMPLATE METHOD ==="
-        );
+        System.out.println("\n=== TEMPLATE METHOD ===");
 
         PedidoTradicional pedidoTradicional =
                 new PedidoTradicional();
@@ -365,10 +280,7 @@ public class Main {
         pedidoVegano.preparar();
 
         // ===== MEMENTO =====
-
-        System.out.println(
-                "\n=== MEMENTO ==="
-        );
+        System.out.println("\n=== MEMENTO ===");
 
         HistoricoPedido historico =
                 new HistoricoPedido();
@@ -376,21 +288,11 @@ public class Main {
         PedidoMemento pedidoMemento =
                 new PedidoMemento();
 
-        pedidoMemento.setEstado(
-                "Pedido recebido"
-        );
+        pedidoMemento.setEstado("Pedido recebido");
+        historico.salvar(pedidoMemento.salvar());
 
-        historico.salvar(
-                pedidoMemento.salvar()
-        );
-
-        pedidoMemento.setEstado(
-                "Pedido em preparação"
-        );
-
-        historico.salvar(
-                pedidoMemento.salvar()
-        );
+        pedidoMemento.setEstado("Pedido em preparação");
+        historico.salvar(pedidoMemento.salvar());
 
         pedidoMemento.setEstado(
                 "Pedido saiu para entrega"
@@ -411,33 +313,65 @@ public class Main {
         );
 
         // ===== VISITOR =====
+        System.out.println("\n=== VISITOR ===");
 
-        System.out.println(
-                "\n=== VISITOR ==="
-        );
-
-        HamburguerItem hamburguerItem =
+        HamburguerItem hamburguerVisitor =
                 new HamburguerItem(
                         "X-Burger",
                         25.0
                 );
 
-        BebidaItem bebidaItem =
+        BebidaItem bebidaVisitor =
                 new BebidaItem(
                         "Refrigerante",
                         8.0
                 );
 
         Visitor visitor =
-                new VisitorPreco();
+                new CalculadoraPrecoVisitor();
 
-        hamburguerItem.aceitar(
+        hamburguerVisitor.aceitar(
                 visitor
         );
 
-        bebidaItem.aceitar(
+        bebidaVisitor.aceitar(
                 visitor
         );
+
+        // ===== FLYWEIGHT =====
+        System.out.println("\n=== FLYWEIGHT ===");
+
+        IngredienteFlyweight queijo =
+                FlyweightFactory.getIngrediente(
+                        "Queijo"
+                );
+
+        IngredienteFlyweight bacon =
+                FlyweightFactory.getIngrediente(
+                        "Bacon"
+                );
+
+        com.sabornabrasa.flyweight.Pedido pedido1 =
+                new com.sabornabrasa.flyweight.Pedido(
+                        "X-Burger",
+                        queijo
+                );
+
+        com.sabornabrasa.flyweight.Pedido pedido2 =
+                new com.sabornabrasa.flyweight.Pedido(
+                        "X-Bacon",
+                        bacon
+                );
+
+        com.sabornabrasa.flyweight.Pedido pedido3 =
+                new com.sabornabrasa.flyweight.Pedido(
+                        "X-Salada",
+                        queijo
+                );
+
+        pedido1.servir();
+        pedido2.servir();
+        pedido3.servir();
     }
 
     private static Combo criarCombo() {

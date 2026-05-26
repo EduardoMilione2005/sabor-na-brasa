@@ -1,7 +1,6 @@
 package com.sabornabrasa.visitor;
 
-public class VisitorPreco
-        implements Visitor {
+public class VisitorPreco implements Visitor {
 
     @Override
     public void visitarHamburguer(
@@ -9,9 +8,7 @@ public class VisitorPreco
     ) {
 
         System.out.println(
-                "Hambúrguer: "
-                        + hamburguer.getNome()
-                        + " - R$ "
+                "Preço do hambúrguer: R$ "
                         + hamburguer.getPreco()
         );
     }
@@ -22,15 +19,8 @@ public class VisitorPreco
     ) {
 
         System.out.println(
-                "Bebida: "
-                        + bebida.getNome()
-                        + " - R$ "
+                "Preço da bebida: R$ "
                         + bebida.getPreco()
         );
-    }
-
-    @Override
-    public void visitar(ProdutoVisitor produtoVisitor) {
-
     }
 }

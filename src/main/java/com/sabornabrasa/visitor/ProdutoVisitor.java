@@ -1,35 +1,23 @@
 package com.sabornabrasa.visitor;
 
-public class ProdutoVisitor
-        implements ItemVisitor {
+public abstract class ProdutoVisitor implements Item {
 
-    private final String nome;
-    private final double preco;
+    protected String nome;
+    protected double preco;
 
     public ProdutoVisitor(
             String nome,
             double preco
     ) {
-
         this.nome = nome;
         this.preco = preco;
     }
 
     public String getNome() {
-
         return nome;
     }
 
     public double getPreco() {
-
         return preco;
-    }
-
-    @Override
-    public void aceitar(
-            Visitor visitor
-    ) {
-
-        visitor.visitar(this);
     }
 }
