@@ -32,6 +32,7 @@ import com.sabornabrasa.memento.HistoricoPedido;
 import com.sabornabrasa.memento.PedidoMemento;
 import com.sabornabrasa.observer.Cliente;
 import com.sabornabrasa.observer.PedidoLoja;
+import com.sabornabrasa.prototype.HamburguerPrototype;
 import com.sabornabrasa.singleton.ConfiguracaoSistema;
 import com.sabornabrasa.state.Pedido;
 import com.sabornabrasa.strategy.DescontoClienteNovo;
@@ -43,7 +44,7 @@ import com.sabornabrasa.visitor.*;
 
 public class Main {
 
-    public static <Cardapio> void main(String[] args) {
+    public static void main(String[] args) {
 
         // ===== SINGLETON =====
         System.out.println("=== SINGLETON ===");
@@ -172,6 +173,32 @@ public class Main {
                 xSaladaFactory.criarLanche();
 
         xSalada.preparar();
+
+        // ===== PROTOTYPE =====
+        System.out.println("\n=== PROTOTYPE ===");
+
+        HamburguerPrototype original =
+                new com.sabornabrasa.prototype.Hamburguer(
+                        "X-Burger",
+                        30.0
+                );
+
+        HamburguerPrototype clone =
+                original.clone();
+
+        System.out.println(
+                "Original: " +
+                        original.getNome() +
+                        " - R$ " +
+                        original.getPreco()
+        );
+
+        System.out.println(
+                "Clone: " +
+                        clone.getNome() +
+                        " - R$ " +
+                        clone.getPreco()
+        );
 
         // ===== STATE =====
         System.out.println("\n=== STATE ===");
