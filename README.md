@@ -1,157 +1,210 @@
-# 🍔 Sabor na Brasa - Projeto de Padrões de Projeto em Java
+# 🍔 Sabor na Brasa — Design Patterns em Java
 
-## 📌 Descrição
-
-O projeto **Sabor na Brasa** é um sistema de hamburgueria desenvolvido em **Java** com o objetivo de demonstrar a aplicação prática dos principais **Design Patterns (Padrões de Projeto)** da programação orientada a objetos.
-
-Cada padrão foi implementado em um contexto relacionado ao funcionamento de uma hamburgueria, facilitando o entendimento do conceito de forma prática e organizada.
+Projeto acadêmico desenvolvido em **Java** com objetivo de aplicar os principais **Design Patterns (Padrões de Projeto)** utilizando o tema de uma hamburgueria.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📌 Objetivo
 
-- Java
-- Programação Orientada a Objetos (POO)
-- UML / Mermaid
-- IntelliJ IDEA / Eclipse
+Demonstrar a implementação prática dos padrões de projeto utilizando conceitos de:
+
+* Criação de objetos
+* Organização estrutural
+* Controle de comportamento
+* Reutilização de código
+* Boas práticas de orientação a objetos
 
 ---
 
-## 📂 Estrutura do Projeto
+# 🚀 Tecnologias
 
-O projeto está organizado em pacotes, onde cada pacote representa um padrão de projeto:
+* Java
+* IntelliJ IDEA
+* JUnit 5
+* Maven
+
+---
+
+# 📁 Estrutura do Projeto
 
 ```text
-com.sabornabrasa
-│── abstractfactory
-│── bridge
-│── builder
-│── chain
-│── composite
-│── decorator
-│── facade
-│── factorymethod
-│── flyweight
-│── iterator
-│── mediator
-│── memento
-│── observer
-│── prototype
-│── singleton
-│── state
-│── strategy
-│── templatemethod
-│── visitor
-│── Main.java
+src
+├── main
+│   └── java
+│       └── com.sabornabrasa
+│
+├── test
+│   └── java
+│       └── com.sabornabrasa
 ```
 
 ---
 
-## 🧩 Padrões de Projeto Implementados
+# 🧩 Padrões Implementados
 
-### Criacionais
-- **Singleton** → Configuração única do sistema
-- **Builder** → Construção de hambúrgueres
-- **Factory Method** → Criação de lanches
-- **Abstract Factory** → Criação de famílias de produtos
-- **Prototype** → Clonagem de hambúrgueres
+## Criacionais
 
-### Estruturais
-- **Bridge** → Separação entre hambúrguer e ingredientes
-- **Composite** → Criação de combos
-- **Decorator** → Adição de ingredientes extras
-- **Facade** → Interface simplificada para pedidos
-- **Flyweight** → Compartilhamento de ingredientes
+### Singleton
 
-### Comportamentais
-- **Chain of Responsibility** → Fluxo de atendimento
-- **Iterator** → Percorrer itens do menu
-- **Mediator** → Comunicação entre cliente e cozinha
-- **Memento** → Histórico de pedidos
-- **Observer** → Notificação de clientes
-- **State** → Estados do pedido
-- **Strategy** → Estratégias de desconto
-- **Template Method** → Preparação de pedidos
-- **Visitor** → Operações sobre itens do pedido
+Controle de configuração única do sistema.
+
+### Factory Method
+
+Criação de tipos diferentes de lanches.
+
+### Abstract Factory
+
+Criação de famílias de produtos (bebidas e batatas).
+
+### Builder
+
+Construção personalizada de hambúrgueres.
+
+### Prototype
+
+Clonagem de pedidos sem recriação completa.
 
 ---
 
-## ▶️ Como Executar
+## Estruturais
 
-### 1. Clone o repositório
+### Adapter
+
+Adaptação de sistema antigo de entrega para o padrão atual.
+
+### Bridge
+
+Separação entre hambúrguer premium e tipo de ingrediente.
+
+### Composite
+
+Construção de combos utilizando composição.
+
+### Decorator
+
+Adição dinâmica de ingredientes.
+
+### Facade
+
+Interface simplificada para realização de pedidos.
+
+### Flyweight
+
+Compartilhamento de ingredientes para economia de memória.
+
+### Proxy
+
+Controle de acesso ao sistema real de pedidos.
+
+---
+
+## Comportamentais
+
+### Chain of Responsibility
+
+Encaminhamento de solicitações entre atendente, gerente e dono.
+
+### Command
+
+Encapsulamento de ações de pedido.
+
+### Interpreter
+
+Interpretação de comandos e pedidos.
+
+### Iterator
+
+Percorre itens do cardápio.
+
+### Mediator
+
+Comunicação centralizada entre cliente e cozinha.
+
+### Memento
+
+Controle e restauração do estado do pedido.
+
+### Observer
+
+Notificação automática de clientes.
+
+### State
+
+Mudança dinâmica de estados do pedido.
+
+### Strategy
+
+Aplicação de diferentes descontos.
+
+### Template Method
+
+Padronização do preparo dos pedidos.
+
+### Visitor
+
+Operações aplicadas sobre itens do pedido.
+
+---
+
+# ▶️ Executando
+
+Clone o projeto:
 
 ```bash
-git clone https://github.com/seu-usuario/sabor-na-brasa.git
+git clone <repositorio>
 ```
 
-### 2. Abra no IntelliJ ou Eclipse
+Entre na pasta:
 
-Importe o projeto Java normalmente.
-
-### 3. Execute a classe principal
-
-```text
-Main.java
+```bash
+cd sabornabrasa
 ```
 
----
+Execute:
 
-## 📌 Exemplo de Saída
+```bash
+mvn clean install
+```
 
-```text
-=== SINGLETON ===
-Hamburgueria: Sabor na Brasa
+Depois:
 
-=== BUILDER ===
-Hambúrguer Tradicional criado...
-
-=== PROTOTYPE ===
-Original: X-Burger - R$ 30.0
-Clone: X-Burger - R$ 30.0
-
-=== ITERATOR ===
-X-Burger
-X-Salada
-X-Bacon
+```bash
+mvn exec:java
 ```
 
 ---
 
-## 📊 Diagramas UML
+# 🧪 Testes
 
-O projeto possui diagramas de classe desenvolvidos em **Mermaid** para os padrões:
+Executar todos os testes:
 
-- Flyweight
-- Iterator
-- Prototype
-
-Exemplo:
-
-```mermaid
-classDiagram
-class IteratorMenu {
-    <<interface>>
-    +hasNext() boolean
-    +next() ItemMenu
-}
+```bash
+mvn test
 ```
 
----
+Padrões com testes implementados:
 
-## 🎯 Objetivo Acadêmico
-
-Este projeto foi desenvolvido com fins acadêmicos para demonstrar:
-
-- Aplicação prática de Design Patterns
-- Organização em pacotes
-- Reutilização de código
-- Boas práticas de POO
-- Modelagem UML
+* Adapter
+* Command
+* Interpreter
+* Iterator
+* Prototype
+* Proxy
 
 ---
 
-## 👨‍💻 Autor
+# 📚 Conceitos Aplicados
 
-Desenvolvido por **[Seu Nome]**
+* SOLID
+* Programação Orientada a Objetos
+* Encapsulamento
+* Polimorfismo
+* Herança
+* Composição
+* Reutilização de Código
 
-Projeto acadêmico de **Padrões de Projeto em Java**
+---
+
+# 👨‍💻 Autor
+
+Projeto desenvolvido para fins acadêmicos utilizando Java e Design Patterns.
