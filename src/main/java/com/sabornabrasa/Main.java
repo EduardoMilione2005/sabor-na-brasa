@@ -1,6 +1,9 @@
 package com.sabornabrasa;
 
 import com.sabornabrasa.abstractfactory.*;
+import com.sabornabrasa.adapter.Entrega;
+import com.sabornabrasa.adapter.EntregaAdapter;
+import com.sabornabrasa.adapter.SistemaEntregaAntigo;
 import com.sabornabrasa.bridge.IngredienteTradicional;
 import com.sabornabrasa.bridge.IngredienteVegano;
 import com.sabornabrasa.builder.Hamburguer;
@@ -44,7 +47,7 @@ import com.sabornabrasa.visitor.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static <SistemaPagamentoExterno, PagamentoAdapter> void main(String[] args) {
 
         // ===== SINGLETON =====
         System.out.println("=== SINGLETON ===");
@@ -120,6 +123,20 @@ public class Main {
 
         bebidaVegana.exibirTipo();
         batataVegana.exibirTipo();
+
+        // ===== ADAPTER =====
+        System.out.println("\n=== ADAPTER ===");
+
+        SistemaEntregaAntigo sistema =
+                new SistemaEntregaAntigo();
+
+        Entrega adapter =
+                new EntregaAdapter(
+                        sistema
+                );
+
+        adapter.realizarEntrega();
+
 
         // ===== CHAIN OF RESPONSIBILITY =====
         System.out.println("\n=== CHAIN OF RESPONSIBILITY ===");
