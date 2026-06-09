@@ -50,10 +50,13 @@ import com.sabornabrasa.templatemethod.PedidoVegano;
 import com.sabornabrasa.visitor.*;
 import com.sabornabrasa.proxy.PedidoProxy;
 import com.sabornabrasa.proxy.PedidoService;
+import com.sabornabrasa.interpreter.Expressao;
+import com.sabornabrasa.interpreter.InterpretadorPedido;
+import com.sabornabrasa.interpreter.PedidoExpressao;
 
 public class Main {
 
-    public static <SistemaPagamentoExterno, PagamentoAdapter> void main(String[] args) {
+    public static void main(String[] args) {
 
         // ===== SINGLETON =====
         System.out.println("=== SINGLETON ===");
@@ -170,6 +173,23 @@ public class Main {
                 new PedidoProxy();
 
         proxy.realizarPedido();
+
+        // ===== INTERPRETER =====
+        System.out.println("\n=== INTERPRETER ===");
+
+        InterpretadorPedido interpretador =
+                new InterpretadorPedido();
+
+        Expressao pedidoInterpretado =
+                new PedidoExpressao(
+                        "X-Burger"
+                );
+
+        System.out.println(
+                interpretador.interpretar(
+                        pedidoInterpretado
+                )
+        );
 
 
         // ===== CHAIN OF RESPONSIBILITY =====
