@@ -12,6 +12,10 @@ import com.sabornabrasa.builder.HamburguerPremium;
 import com.sabornabrasa.chain.Atendente;
 import com.sabornabrasa.chain.Dono;
 import com.sabornabrasa.chain.Gerente;
+import com.sabornabrasa.command.ComandoPedido;
+import com.sabornabrasa.command.Cozinha;
+import com.sabornabrasa.command.FazerPedidoCommand;
+import com.sabornabrasa.command.Garcom;
 import com.sabornabrasa.composite.Combo;
 import com.sabornabrasa.composite.Produto;
 import com.sabornabrasa.decorator.BaconDecorator;
@@ -136,6 +140,26 @@ public class Main {
                 );
 
         adapter.realizarEntrega();
+
+        // ===== COMMAND =====
+        System.out.println("\n=== COMMAND ===");
+
+        Cozinha cozinha =
+                new Cozinha();
+
+        ComandoPedido pedidoCommand =
+                new FazerPedidoCommand(
+                        cozinha
+                );
+
+        Garcom garcom =
+                new Garcom();
+
+        garcom.setComando(
+                pedidoCommand
+        );
+
+        garcom.fazerPedido();
 
 
         // ===== CHAIN OF RESPONSIBILITY =====
