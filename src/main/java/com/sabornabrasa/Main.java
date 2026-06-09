@@ -48,6 +48,8 @@ import com.sabornabrasa.strategy.PedidoStrategy;
 import com.sabornabrasa.templatemethod.PedidoTradicional;
 import com.sabornabrasa.templatemethod.PedidoVegano;
 import com.sabornabrasa.visitor.*;
+import com.sabornabrasa.proxy.PedidoProxy;
+import com.sabornabrasa.proxy.PedidoService;
 
 public class Main {
 
@@ -160,6 +162,14 @@ public class Main {
         );
 
         garcom.fazerPedido();
+
+        // ===== PROXY =====
+        System.out.println("\n=== PROXY ===");
+
+        PedidoService proxy =
+                new PedidoProxy();
+
+        proxy.realizarPedido();
 
 
         // ===== CHAIN OF RESPONSIBILITY =====
